@@ -1,0 +1,160 @@
+*{
+	margin: 0 ;
+}
+
+
+#map{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+#header {
+	width: 100vw;
+	height: 10vh;
+	position: fixed;
+	z-index: 1000;
+}
+.search-container {
+	margin: 10px;
+  height: 100%;
+}
+
+
+.search {
+  width: 40%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.search .search_direct {
+  position: absolute;
+  top: 20px;
+  right: 170px;
+}
+
+
+
+
+.menu {
+  position: absolute;
+  top: 10px;
+  bottom: 15px;
+  width: 43px;
+  left: 62px;
+  margin-top: 4px;
+  z-index: 1001;
+}
+
+.menu-icon{
+  font-size: 32px;
+  padding: 11px;
+}
+
+.menu_list {
+position: fixed;
+ height: 100vh;
+ width: 20vw;
+ background-color: hsl(0, 0%, 100%);
+ margin: 0;
+ z-index: 1200;
+}
+
+.header-list{
+ display: flex; 
+ position: relative;
+ border-bottom: 1px solid #ccc;
+}
+
+.map_name {
+  color: red;
+  margin: 15px;
+}
+
+.btn_close {
+  position: absolute;
+  z-index: 3000;
+  font-size: 25px;
+  top: 16px;
+  right: 23px;
+  padding: 4px;
+}
+
+
+
+.items ul{
+  margin-top: 5px;
+  list-style: none;
+}
+
+.item-list{
+  position: relative;
+}
+
+
+.item {
+  display: flex;
+
+}
+
+.item i {
+ position: absolute;
+ left: 20px;
+}
+
+.items ul li {
+  margin: 10px;
+  margin-left: 26px;
+}
+
+ul:nth-child(1) li:nth-child(1) p{
+  margin-left: 2px;
+  margin-top: 6px;
+}
+
+
+
+
+.search .search-icon {
+  position: absolute;
+  right:45%;
+  top: 36%;
+  color: #676767;
+  font-size: 22px;
+}
+
+.search-icon .seprate {
+  position: absolute;
+  left: 36px;
+  top: -18px;
+  font-size: 46px;
+  font-weight: 200
+}
+
+.icon-direct {
+  position: absolute;
+  font-size: 20px;
+  z-index: 1001;
+  left: 70px;
+}
+
+.search form{
+  width: 80%;
+}
+
+.search input {
+  width: 70%;
+  padding: 4px 50px;
+  border-radius: 10px;
+  outline: 0;
+  border: 0;
+  background-color: #fff;
+}
+
+input,
+input::placeholder {
+    font: 18px/3 sans-serif;
+}
+
