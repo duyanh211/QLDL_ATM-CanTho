@@ -9,6 +9,13 @@
     height: 100%;
 }
 
+/* form  */
+
+  #map div .testForm {
+  display: none;
+  }
+
+
 
 #header {
 	width: 100vw;
@@ -21,6 +28,9 @@
   height: 100%;
 }
 
+.item-list li:hover{
+  background: #ccc;
+}
 
 .search {
   width: 40%;
@@ -89,6 +99,8 @@ position: fixed;
   list-style: none;
 }
 
+
+
 .item-list{
   position: relative;
 }
@@ -97,6 +109,11 @@ position: fixed;
 .item {
   display: flex;
 
+}
+
+
+.item-list li:hover {
+  opacity: 0.8;
 }
 
 .item i {
@@ -157,4 +174,8 @@ input,
 input::placeholder {
     font: 18px/3 sans-serif;
 }
+
+/* form */
+
+
 
