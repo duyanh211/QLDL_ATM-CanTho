@@ -13,6 +13,7 @@
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="./Style.css">
 <head>
@@ -23,7 +24,7 @@
 		position: relative;
 		height: 300px;
 		opacity: 1;
-		width: 400px;
+		width: 430px;
 		z-index: 2000;
 		position: fixed;
 		top: 20%;
@@ -32,16 +33,31 @@
 		border-radius: 20px;
 		padding: 20px;
 	}
+
+	#formAddAtm{
+		display: none;
+	}
+
+	#formAddBank{
+		display: none;
+	}
+
+	.addForm i{
+		position: absolute;
+		right: 10px;
+		top: 5px;
+	}
 	.addForm select {
 		border-radius: 4px;
 		height: 28px;
 		position: absolute;
 		right: 10px;
+		top: 42px;
 	}
 
 	.addForm button{
 		position: absolute;
-		right: 10px;
+		right: 16px;
 	}
 
 	.addForm input {
@@ -54,16 +70,59 @@
 <body>
     <div id ="main-menu" class="menu_list">
         <div class="header-list">
-            <h1 class="map_name">ATM_Map</h1>
+            <h1 class="map_name" style="color: #4285f4;">A<span style="color: #ea4335;">T</span><span style="color: #fbbc05;">M</span> <span style="color: #fbbc05;">M</span><span style="color: #34a853;">A</span>P</h1>
             <div class="btn_close" onclick = "clickBtnClose()"><i class="fa fa-close"></i></div>
         </div>
 
         <div class="items">
             <ul class="item-list">
-                <li class="item"><i class="fa fa-bookmark" style="font-size:25px"></i> <p>Danh Sách ATM</p></li>
-                <li class="item"><i class='fas fa-user-check' style='font-size:20px'></i> <p>Đã được chia sẽ</p></li>
-                <li class="item"><i class='fas fa-wheelchair' style='font-size:24px'></i> <p>Đường đi</p></li>
-                <li id = "addbtn" class="item" style="cursor: pointer;"><i class='fas fa-wheelchair' style='font-size:24px'></i> <p>Thêm</p></li>
+				<!-- list atm -->
+                <li class="item cus-item"><i class="fa fa-bookmark icon-cus" style="font-size:25px"></i> 
+				<p>Danh Sách ATM</p>
+				<i class="material-icons" id = "chevron-atm">chevron_right</i>
+				<i class="material-icons" id="expand-atm">expand_more</i></li>
+				<div id="list-atm" class="listChild" style="margin-top: -5px;">
+					<ul class="ul-child">
+						<li>phan duy anh</li>
+						<li>cai nha to lon</li>
+					</ul>
+				</div>
+				<!-- list phong gd -->
+				<li class="item cus-item"><i class="fa fa-bookmark icon-cus" style="font-size:25px"></i> 
+				<p>Phòng giao dịch</p><i class="material-icons" id = "chevron-trans">chevron_right</i>
+				<i class="material-icons" id="expand-trans">expand_more</i></li>
+				<div id="list-trans" class="listChild" style="margin-top: -5px;">
+					<ul class="ul-child">
+						<li>phan duy anh</li>
+						<li>cai nha to lon</li>
+					</ul>
+				</div>
+				<!-- list ngan hang -->
+				<li class="item cus-item"><i class="fa fa-bookmark icon-cus" style="font-size:25px"></i>
+				 <p>Ngân hàng</p><i class="material-icons" id = "chevron-bank">chevron_right</i>
+				 <i class="material-icons" id="expand-bank">expand_more</i></li>
+				<div id="list-bank" class="listChild" style="margin-top: -5px;">
+					<ul class="ul-child">
+						<li>phan duy anh</li>
+						<li>cai nha to lon</li>
+					</ul>
+				</div>
+
+                <li class="item"><i class='fas fa-user-check icon-cus' style='font-size:20px'></i> <p>Đã được chia sẽ</p></li>
+                <li class="item"><i class='fas fa-wheelchair icon-cus' style='font-size:24px'></i> <p>Đường đi</p></li>
+
+                <li  class="item" style="cursor: pointer;"><i class='fas fa-wheelchair icon-cus' style='font-size:24px'></i> 
+				<p style="margin-left: 12px;">Thêm</p> 
+				<i class="material-icons" id ="chevron-add">chevron_right</i>
+				<i class="material-icons" id="expand-add">expand_more</i>
+				</li>
+				<div id="listAdd" class="liAdds" style="margin-top: -5px;">
+					<ul class="ul-child-add">
+						<li id = "addBanktbn">Ngân hàng</li>
+						<li id = "addTransit">Phòng giao dịch</li>
+						<li id = "addAtmbtn">Atm</li>
+					</ul>
+				</div>
             </ul>
         </div>
     </div>
@@ -88,15 +147,16 @@
 					</div>
                    
 			</div>
-			</div>
-							<form class="addForm">
-								<select name="Bankname" >
-									<option value="">Ngân hàng SCB</option>
-									<option value="">Ngân hàng VCB</option>
+			</div>			
+							<form class="addForm" id="formAddAtm">
+							<i class="material-icons" id="btnClAtmform" style="font-size:30px">close</i>
+								<select name="Bankname" class="selBankname">
+								<option selected="" disabled="">Chọn ngân hàng</option>
+								<option value="">Ngân hàng VCB</option>
 								</select>
 								<div class="container-laInp">
 									<label for="">Nhập tên</label>
-									<input type="text" class="form-control" placeholder="Nhập tên Atm/phòng Giao Dịch" name="name">
+									<input type="text" class="form-control" placeholder="Nhập tên Atm" name="name">
 									<label for="">Địa chỉ</label>
 									<input type="text" class="form-control" placeholder="Nhập địa chỉ " name="addr">
 									<label for="">Vĩ độ</label>
@@ -107,6 +167,21 @@
 									<button class="btn btn-primary">Lưu</button>
 							</form>
 
+							<!-- form add phong gd -->
+							<form class="addForm" id="formAddBank">
+							<i class="material-icons"  id="btnClofBank" style="font-size:30px">close</i>
+								<div class="container-laInp">
+									<label for="">Nhập tên</label>
+									<input type="text" class="form-control" placeholder="Nhập tên Ngân hàng" name="name">
+									<label for="">Địa chỉ</label>
+									<input type="text" class="form-control" placeholder="Nhập địa chỉ " name="addrBank">
+									<label for="">Vĩ độ</label>
+									<input type="text" class="form-control" placeholder="Nhập vị độ" name="latBank">
+									<label for="">Kinh Độ</label>
+									<input type="text" class="form-control" placeholder="Nhập kinh độ" name="longtBank">
+								</div>
+									<button class="btn btn-primary">Lưu</button>
+							</form>
 		</div>
 
 	</div>
@@ -181,7 +256,7 @@ var atmLocations = <?php echo $jsonData ?>;
 	
 	
 	
-
+// hien vi tri cua ban
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function(position){
 
@@ -193,6 +268,7 @@ if (navigator.geolocation) {
 	});
 }
 
+// them dia diem
 var btnadd = document.querySelector('#addbtn');
 	btnadd.onclick= function() {
 

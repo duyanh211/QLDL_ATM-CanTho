@@ -28,9 +28,7 @@
   height: 100%;
 }
 
-.item-list li:hover{
-  background: #ccc;
-}
+
 
 .search {
   width: 40%;
@@ -42,7 +40,7 @@
 .search .search_direct {
   position: absolute;
   top: 20px;
-  right: 170px;
+  right: 230px;
 }
 
 
@@ -75,10 +73,11 @@ position: fixed;
 .header-list{
  display: flex; 
  position: relative;
- border-bottom: 1px solid #ccc;
+ border-bottom: 2px solid #ccc;
 }
 
 .map_name {
+  font-family:serif;
   color: red;
   margin: 15px;
 }
@@ -87,7 +86,7 @@ position: fixed;
   position: absolute;
   z-index: 3000;
   font-size: 25px;
-  top: 16px;
+  top: 4px;
   right: 23px;
   padding: 4px;
 }
@@ -113,27 +112,103 @@ position: fixed;
 
 
 .item-list li:hover {
-  opacity: 0.8;
-}
+  color: blue;
+  cursor: pointer;
+} 
 
-.item i {
+.item .icon-cus{
  position: absolute;
  left: 20px;
+
+}
+
+
+
+.cus-item p{
+  margin-left: 22px !important;
+}
+
+.item i #chevron-atm{
+  position: absolute;
+  right: 20px !important;
 }
 
 .items ul li {
-  margin: 10px;
-  margin-left: 26px;
-}
-
-ul:nth-child(1) li:nth-child(1) p{
-  margin-left: 2px;
-  margin-top: 6px;
+  padding: 4px;
+  display: flex;
+  justify-content: space-evenly ;
+  /* margin-left: 26px; */
 }
 
 
+/* list con */
+
+#chevron-atm{
+  margin-right: -60px;
+
+}
+#expand-atm{
+  margin-right: -60px;
+  display: none;
+}
+
+#chevron-trans {
+  margin-right: -60px;
+}
+#expand-trans{
+  margin-right: -60px;
+  display: none;
+}
+
+#chevron-bank {
+  margin-right: -74px;
+}
+#expand-bank{
+  margin-right: -74px;
+  display: none;
+}
+
+#chevron-add{
+  margin-right: -98px;
+}
+#expand-add{
+  margin-right: -98px;
+  display: none;
+}
+
+.listChild{
+  display: none;
+}
+
+.liAdds{
+  display: none;
+}
 
 
+
+.liAdds ul li{
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 120px;
+}
+
+.listChild ul li{
+  padding: 5px;
+  margin-left: -24px;
+}
+
+.ul-child:first-child,
+.ul-child-add:first-child{
+  border-top: 1px solid #ccc;
+}
+
+.ul-child:last-child,
+.ul-child-add:first-child{
+  border-bottom: 1px solid #ccc;
+}
+
+
+/* end list con */
 .search .search-icon {
   position: absolute;
   right:45%;
@@ -162,7 +237,7 @@ ul:nth-child(1) li:nth-child(1) p{
 }
 
 .search input {
-  width: 70%;
+  width: 85%;
   padding: 4px 50px;
   border-radius: 10px;
   outline: 0;

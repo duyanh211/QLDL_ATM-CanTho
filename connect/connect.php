@@ -1,5 +1,6 @@
 <?php 
-    $conn = mysqli_connect("localhost","root","","atm");
-    mysqli_set_charset($conn,"utf8");
-    session_start();
+    define("USERNAME", "root");
+    define("HOST", "localhost");
+    define("PASSWORD", "");
+    define("DATABASE", "qlatm");
 ?>
