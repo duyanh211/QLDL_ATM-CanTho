@@ -213,37 +213,12 @@ var layer = new L.TileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
 							subdomains: ['mt0','mt1','mt2','mt3']
 							});
 map.addLayer(layer);
-var icon = new L.icon({iconUrl:"../images/ht-rua.png",iconSize:[30,30]});
-var customPopup = "<b>Đại học Cần Thơ</b><br/><img src='../images/ht-rua.png' width='150px'/>";
-
-  var locations = [
-					{
-						name: 'Khu I đường 30/4',
-						coordi: [10.015944272676007, 105.7657626384412]
-					},
-					{
-						name: 'Khu II đường 3/2',
-						coordi: [10.0354, 105.7684]
-					},
-					{
-						name: 'Khu III đường Lý Tự Trọng',
-						coordi: [10.0291, 105.7682]
-					},
-					{
-						name: 'Khu Hòa An',
-						coordi: [9.9500, 105.6500]
-					}
-				];
 
 			var defaultIcon = L.icon({
 			iconUrl: '../images/marker-icon-2x.png',
-			iconSize: [23, 33],
-		});
+			iconSize: [23, 33],});
 
-locations.forEach(function(location) {
-    var marker2 = L.marker(location.coordi, {title: location.name, icon: defaultIcon}).addTo(map);
-    marker2.bindPopup(location.name);
-});
+
 	
 	// render data tu database atm
 var atmLocations = <?php echo $jsonData ?>;
