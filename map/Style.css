@@ -253,4 +253,31 @@ input::placeholder {
 /* form */
 
 
+/* list option */
+.select-wrap {
+  width: 215px;
+  height: 22px;
+}
 
+.lihov:hover{
+  background: #ccc;
+}
+
+.lihov {
+  position: relative;
+}
+
+.lihov button{
+  width: 32px;
+  height: 28px;
+ position: absolute;
+ right: 3px;
+}
+
+.lihov button a{
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  right: 3px;
+  color: #fff;
+}
