@@ -9,8 +9,8 @@
     <div class="login-page">
       <div class="form">
         <form class="login-form" action="login.php" method="POST">
-          <input type="text" name="taikhoan" placeholder="Tên đăng nhập"/>
-          <input type="password" name="matkhau" placeholder="Mật khẩu"/>
+          <input type="Ten" name="Ten" placeholder="Tên đăng nhập"/>
+          <input type="matkhau" name="matkhau" placeholder="Mật khẩu"/>
           <button class="submit" name="submit">Đăng nhập</button>
         </form>
       </div>
@@ -22,9 +22,9 @@
     require_once('../../connect/connect.php');
 
     if (isset($_POST['submit'])) {
-      $taikhoan = $_POST['taikhoan'];
+      $Ten = $_POST['Ten'];
       $matkhau = $_POST['matkhau'];
-      $sql =  "SELECT * FROM `user` WHERE ten = '$taikhoan' and Mk = '$matkhau'";
+      $sql =  "SELECT * FROM `taikhoan` WHERE ten = '$Ten' and matkhau = '$matkhau'";
       $query = mysqli_query($conn, $sql);
       $checkdn = mysqli_num_rows($query);
       if ($checkdn == 1) {
@@ -37,7 +37,7 @@
           $err['matkhau'] = 'Bạn Chưa Nhập Mật khẩu không đúng';
         }
       } else {
-        $err['taikhoan'] = 'Tài khoản không tồn tại';
+        $err['Ten'] = 'Tài khoản không tồn tại';
         $err['matkhau'] = 'Bạn Chưa Nhập Mật khẩu không đúng';
       }
     }

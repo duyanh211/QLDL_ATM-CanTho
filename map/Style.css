@@ -40,7 +40,7 @@
 .search .search_direct {
   position: absolute;
   top: 20px;
-  right: 200px;
+  right: 230px;
 }
 
 
@@ -50,7 +50,7 @@
   position: absolute;
   top: 10px;
   bottom: 15px;
-  width: 43px;
+  width: 103px;
   left: 62px;
   margin-top: 4px;
   z-index: 1001;
@@ -189,7 +189,7 @@ position: fixed;
 .liAdds ul li{
   display: flex;
   justify-content: flex-start;
-  margin-left: 120px;
+  margin-left: 50px;
 }
 
 .listChild ul li{
@@ -253,7 +253,57 @@ input::placeholder {
 /* form */
 
 
-/* list option */
+
+#formaddTransit{
+  display: none;
+  height: fit-content;
+}
+.addForm{
+position: relative;
+height: 300px;
+opacity: 1;
+width: 430px;
+z-index: 2000;
+position: fixed;
+top: 20%;
+left: 30%;
+background: #ccc;
+border-radius: 20px;
+padding: 20px;
+}
+
+#formAddAtm{
+display: none;
+height: fit-content;
+}
+
+#formAddBank{
+display: none;
+height: fit-content;
+}
+
+.addForm i{
+position: absolute;
+right: 10px;
+top: 5px;
+}
+.addForm select {
+border-radius: 4px;
+height: 28px;
+position: absolute;
+right: 10px;
+top: 42px;
+}
+
+.addForm button{
+position: absolute;
+right: 16px;
+}
+
+.addForm input {
+width: 250px;	
+}
+
 .select-wrap {
   width: 215px;
   height: 22px;

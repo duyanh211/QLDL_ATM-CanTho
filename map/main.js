@@ -1,4 +1,3 @@
-
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
@@ -51,35 +50,49 @@ iconExpand_adds.onclick = function(){
 }
 
 // form them dia diem atm
- var addBtn = $('#addAtmbtn')
- var formAdd = $('#formAddAtm')
+ var addBtn = $('#addBanktbn')
+ var formAdd = $('#formAddBank')
 
  addBtn.onclick = function(){
 	formAdd.style.display = 'block'
  }
 
 // close form add
-var btncloseAdd = $('#btnClAtmform')
+var btncloseAdd = $('#btnClofBank')
 
 btncloseAdd.onclick = function(){
 	formAdd.style.display = 'none'
  }
 
- // end  form them dia diem atm
 
- // form add bank
- var addBanktbn = $('#addBanktbn')
- var formAddBank = $('#formAddBank')
 
- addBanktbn.onclick = function(){
-	formAddBank.style.display = 'block'
+  var addBtn2 = $('#addTransit')
+ var formAdd2 = $('#formaddTransit')
+
+ addBtn2.onclick = function(){
+	formAdd2.style.display = 'block'
  }
 
 // close form add
-var btnClofBank = $('#btnClofBank')
+var btncloseAdd2 = $('#btnClofGD')
 
-btnClofBank.onclick = function(){
-	formAddBank.style.display = 'none'
+btncloseAdd2.onclick = function(){
+	formAdd2.style.display = 'none'
+ }
+
+
+ var addBtn3 = $('#addAtmbtn')
+ var formAdd3 = $('#formAddAtm')
+
+ addBtn3.onclick = function(){
+	formAdd3.style.display = 'block'
+ }
+
+// close form add
+var btncloseAdd3 = $('#btnClAtmform')
+
+btncloseAdd3.onclick = function(){
+	formAdd3.style.display = 'none'
  }
 
 
@@ -119,7 +132,6 @@ iconExpand_trans.onclick = function(){
 }
 
 // xuly list bank
-
 var iconChrvron_bank = $('#chevron-bank')
 var iconExpand_bank = $('#expand-bank')
 var childList_bank = $('#list-bank')

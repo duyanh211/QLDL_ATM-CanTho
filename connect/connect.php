@@ -1,6 +1,6 @@
 <?php 
-    define("USERNAME", "root");
+    define("Ten", "root");
     define("HOST", "localhost");
-    define("PASSWORD", "");
+    define("matkhau", "");
     define("DATABASE", "qlatm");
 ?>

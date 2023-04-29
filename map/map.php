@@ -98,6 +98,7 @@ if (isset($_POST["btn_NH"])) {
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	
 	<link rel="stylesheet" href="./Style.css">
 	<title>ATM-MAP2</title>
 </head>
@@ -175,11 +176,11 @@ if (isset($_POST["btn_NH"])) {
 							<input name="search" type="text" placeholder="Tìm kiếm trên stupid map">
 						</form>
 
-                        <div class="search_direct">
+                          <!--<div class="search_direct">
                             <i class="fas fa-search search-icon">
-                            <div class="seprate">|</div>
+                           <div class="seprate">|</div> 
 							<i class="fas fa-share icon-direct"></i></i>
-                        </div>
+                        </div>-->
 					
 					</div>
                    
