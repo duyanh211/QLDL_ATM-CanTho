@@ -99,6 +99,12 @@ if (isset($_POST["btn_NH"])) {
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	
+	<!-- search cus -->
+		<link rel="stylesheet" href="leaflet-search-master\dist\leaflet-search.src.css" />
+	<script src="./leaflet-search-master/dist/leaflet-search.src.js"></script>
+	<!-- search default -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+	<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 	<link rel="stylesheet" href="./Style.css">
 	<title>ATM-MAP2</title>
 </head>
@@ -172,9 +178,8 @@ if (isset($_POST["btn_NH"])) {
                     <i class="fas fa-bars menu-icon" ></i>
                 </div>
 				<div class="search">                
-						<form action="index.php" method="POST">
 							<input name="search" type="text" placeholder="Tìm kiếm trên stupid map">
-						</form>
+
 
                           <!--<div class="search_direct">
                             <i class="fas fa-search search-icon">
@@ -263,17 +268,59 @@ if (isset($_POST["btn_NH"])) {
 	</div>
 	
 	<?php 
-			require_once('../connect/connect.php');
+	require_once('../connect/connect.php');
 			//$conn = mysqli_connect(HOST, Ten, matkhau, DATABASE);
-			 $sql = 'select * from cayatm';
+						 $sql = 'select * from cayatm';
 			 $result = mysqli_query($conn, $sql);
 			 $data   = [];
-			 
-	while ($row=mysqli_fetch_assoc($result)) {
-		$data[] = $row;
-	}
+			 $listSearch = []; 
+
+			while ($row=mysqli_fetch_assoc($result)) {
+				$data[] = $row;
+				$listSearch[] = array(
+					"ten" => "ATM ".$row["tenCay"],
+					"lat" => $row["viDo"],
+					"long" => $row["kinhDo"]
+				);
+			}
 	
 		$jsonData = json_encode($data);
+		
+		// phong gd 
+		$sqlPgd = 'select * from phong_gd';
+		 $rsPgd = mysqli_query($conn, $sqlPgd);
+		 $dataPgd = [];
+		 
+		 while ($row=mysqli_fetch_assoc($rsPgd)) {
+			$dataPgd[] = $row;
+				$listSearch[] = array(
+					"ten" => "Phòng Giao Dịch ".$row["tenPhong"],
+					"lat" => $row["viDo"],
+					"long" => $row["kinhDo"]
+				);
+		 }
+	print_r($dataPgd);
+		$jsonDataPgd = json_encode($dataPgd);
+		
+		$sqlNH = 'select * from nganhang';
+		 $rsNH = mysqli_query($conn, $sqlNH);
+		 $dataNH = [];
+		 
+		 while ($row=mysqli_fetch_assoc($rsNH)) {
+			$dataNH[] = $row;
+				$listSearch[] = array(
+					"ten" => "Ngân Hàng ".$row["tenNH"],
+					"lat" => $row["viDo"],
+					"long" => $row["kinhDo"]
+				);
+		 }
+	
+		$jsonDataNH = json_encode($dataNH);
+		
+		
+		// search bFail
+		$listSearchGS = json_encode($listSearch);
+		
 	?>
 
 <script>
@@ -294,19 +341,39 @@ map.addLayer(layer);
 			iconUrl: '../images/marker-icon-2x.png',
 			iconSize: [23, 33],});
 
-
-	
-	// render data tu database atm
+ L.Control.geocoder().addTo(map);
+ 
+// render data tu database atm
 var atmLocations = <?php echo $jsonData ?>;
 
 	atmLocations.forEach(function(atmlocation) {
 	var marL = new L.LatLng(atmlocation.viDo, atmlocation.kinhDo);
     var marker = L.marker(marL, {title: atmlocation.tencay, icon: defaultIcon}).addTo(map);
-    marker.bindPopup(atmlocation.tenCay);
+    marker.bindPopup("ATM " + atmlocation.tenCay);
 });
 	
 	
+		// render Phong gd
 	
+	var pgdLocations = <?php echo $jsonDataPgd ?>;
+	
+	pgdLocations.forEach(function(pdg){
+	var marPL = new L.LatLng(pdg.viDo, pdg.kinhDo);
+    var marker = L.marker(marPL, {title: pdg.tenPhong, icon: defaultIcon}).addTo(map);
+    marker.bindPopup("Phòng Giao dịch" + pdg.tenPhong);
+});
+
+
+
+// rd NH 
+ var NHLocations = <?php echo $jsonDataNH ?>;
+	NHLocations.forEach(function(nganhang){
+	var marNHL = new L.LatLng(nganhang.viDo, nganhang.kinhDo);
+    var marker = L.marker(marNHL, {title: nganhang.tenNH, icon: defaultIcon}).addTo(map);
+    marker.bindPopup("Ngân Hàng " + nganhang.tenNH);
+});
+
+
 // hien vi tri cua ban
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function(position){
@@ -318,6 +385,11 @@ if (navigator.geolocation) {
 	marker.bindPopup("Bạn đang ở đây").openPopup();
 	});
 }
+
+
+// tim kiem 
+//L.Control.geocoder().addTo(map);
+
 
 // them dia diem
 var btnadd = document.querySelector('#addbtn');
