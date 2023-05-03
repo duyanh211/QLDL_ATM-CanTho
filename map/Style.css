@@ -58,7 +58,6 @@
 
 .menu-icon{
   font-size: 32px;
-  background: #fff;
   padding: 11px;
 }
 
@@ -72,67 +71,68 @@ position: fixed;
 }
 
 .header-list{
- display: flex; 
- position: relative;
- border-bottom: 2px solid #ccc;
-}
-
-.map_name {
-  font-family:serif;
-  color: red;
-  margin: 15px;
-}
-
-.btn_close {
-  position: absolute;
-  z-index: 3000;
-  font-size: 25px;
-  top: 4px;
-  right: 23px;
-  padding: 4px;
-}
-
-
-
-.items ul{
-  margin-top: 5px;
-  list-style: none;
-}
-
-
-
-.item-list{
+  display: flex; 
   position: relative;
-}
-
-
-.item {
-  display: flex;
-
-}
-
-
-.item-list li:hover {
-  color: blue;
-  cursor: pointer;
-} 
-
-.item .icon-cus{
- position: absolute;
- left: 20px;
-
-}
-
-
-
-.cus-item p{
-  margin-left: 22px !important;
-}
-
-.item i #chevron-atm{
+  border-bottom: 2px solid #ccc;
+ }
+ 
+ .map_name {
+   font-family:serif;
+   color: red;
+   margin: 15px;
+ }
+ 
+ .btn_close {
+   position: absolute;
+   z-index: 3000;
+   font-size: 25px;
+   top: 4px;
+   right: 23px;
+   padding: 4px;
+ }
+ 
+ 
+ 
+ .items ul{
+   margin-top: 5px;
+   list-style: none;
+ }
+ 
+ 
+ 
+ .item-list{
+   position: relative;
+ }
+ 
+ 
+ .item {
+   display: flex;
+ 
+ }
+ 
+ 
+ .item-list li:hover {
+   color: blue;
+   cursor: pointer;
+ } 
+ 
+ .item .icon-cus{
   position: absolute;
-  right: 20px !important;
-}
+  left: 20px;
+ 
+ }
+ 
+ 
+ 
+ .cus-item p{
+   margin-left: 22px !important;
+ }
+ 
+ .item i #chevron-atm{
+   position: absolute;
+   right: 20px !important;
+ }
+ 
 
 .items ul li {
   padding: 4px;
@@ -186,7 +186,6 @@ position: fixed;
 }
 
 
-
 .liAdds ul li{
   display: flex;
   justify-content: flex-start;
@@ -223,7 +222,7 @@ position: fixed;
   left: 36px;
   top: -18px;
   font-size: 46px;
-  font-weight: 200
+  font-weight: 200;
 }
 
 .icon-direct {
@@ -236,6 +235,7 @@ position: fixed;
 .search form{
   width: 80%;
 }
+
 
 .search input {
   width: 85%;
@@ -261,7 +261,7 @@ input::placeholder {
 }
 .addForm{
 position: relative;
-height: 300px;
+height: 350px;
 opacity: 1;
 width: 430px;
 z-index: 2000;
@@ -273,62 +273,70 @@ border-radius: 20px;
 padding: 20px;
 }
 
+
+
 #formAddAtm{
-display: none;
-height: fit-content;
-}
-
-#formAddBank{
-display: none;
-height: fit-content;
-}
-
-.addForm i{
-position: absolute;
-right: 10px;
-top: 5px;
-}
-.addForm select {
-border-radius: 4px;
-height: 28px;
-position: absolute;
-right: 10px;
-top: 42px;
-}
-
-.addForm button{
-position: absolute;
-right: 16px;
-}
-
-.addForm input {
-width: 250px;	
-}
-
-.select-wrap {
-  width: 215px;
-  height: 22px;
-}
-
-.lihov:hover{
-  background: #ccc;
-}
-
-.lihov {
-  position: relative;
-}
-
-.lihov button{
-  width: 32px;
-  height: 28px;
- position: absolute;
- right: 3px;
-}
-
-.lihov button a{
-  text-decoration: none;
+  display: none;
+  }
+  
+  #formAddBank{
+  display: none;
+  }
+  
+  .addForm i{
   position: absolute;
-  top: 0;
-  right: 3px;
-  color: #fff;
-}
+  right: 10px;
+  top: 5px;
+  }
+  .addForm select {
+  border-radius: 4px;
+  height: 28px;
+  position: absolute;
+  }
+  
+  .addForm button{
+  position: absolute;
+  right: 16px;
+  }
+  
+  .addForm input {
+  width: 250px;	
+  }
+  
+  #city{
+    position: relative;
+    top: 22px;
+  }
+  
+  .select-wrap {
+    width: 215px;
+    height: 22px;
+  }
+  
+  .lihov:hover{
+    background: #ccc;
+  }
+  
+  .lihov {
+  
+    margin-left: 0%;
+    text-align: left;
+  }
+  
+  
+  .lihov button{
+    width: 32px;
+    height: 28px;
+   position: absolute;
+   right: 3px;
+   margin-left: 5px;
+  }
+  
+  .lihov button a{
+    text-decoration: none;
+    position: absolute;
+    top: 0;
+    right: 3px;
+    color: #fff;
+  }
+  
