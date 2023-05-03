@@ -360,6 +360,7 @@ var atmLocations = <?php echo $jsonData ?>;
 
 // rd NH 
  var NHLocations = <?php echo $jsonDataNH ?>;
+ 
 	NHLocations.forEach(function(nganhang){
 	var marNHL = new L.LatLng(nganhang.viDo, nganhang.kinhDo);
     var marker = L.marker(marNHL, {title: nganhang.tenNH, icon: defaultIcon}).addTo(map);
@@ -367,19 +368,29 @@ var atmLocations = <?php echo $jsonData ?>;
 });
 
 
+
+
 // hien vi tri cua ban
+var curLat 
+var cutLong
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function(position){
 
 	var latitude = position.coords.latitude;
 	var longitude = position.coords.longitude;
+	
+	curLat = latitude
+	curLong = longtitude
 	var markerLocation = new L.LatLng(latitude, longitude);
 	var marker =  L.marker(markerLocation,{icon: defaultIcon}).addTo(map);
 	marker.bindPopup("Bạn đang ở đây").openPopup();
 	});
 }
 
-
+ var latLong = new L.LatLng(curLat, curLong);
+ console.log(curLat)
+var polyline = L.polyline[latLong, [0.031878990019916, 105.7816750764071]],
+{color: 'red',weight:8}).addTo(map);
 
 
 // them dia diem

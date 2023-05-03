@@ -20,7 +20,7 @@
 </html>
  <?php 
     require_once('../../connect/connect.php');
-
+$conn = mysqli_connect(HOST, Ten, matkhau,DATABASE);
     if (isset($_POST['submit'])) {
       $Ten = $_POST['Ten'];
       $matkhau = $_POST['matkhau'];

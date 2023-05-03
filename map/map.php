@@ -106,6 +106,13 @@ if (isset($_POST["btn_NH"])) {
 	<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 	<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 	<link rel="stylesheet" href="./Style.css">
+	
+	<!-- s cus -->
+	<link rel="stylesheet" href="./dist/leaflet-routing-machine/Control.Geocoder.css" />
+	<script src="./dist/leaflet-routing-machine/Control.Geocoder.js"></script>
+	<link rel="stylesheet" href="./dist/leaflet-routing-machine/leaflet-routing-machine.css">
+	<script src="./dist/leaflet-routing-machine/leaflet-routing-machine.js"></script>
+	<script src="./dist/leaflet-routing-machine/config.js"></script>
 	<title>ATM-MAP2</title>
 </head>
 <body>
@@ -175,17 +182,13 @@ if (isset($_POST["btn_NH"])) {
 		<div id= "header">
 			<div class = "search-container" >
                 <div class="menu" onclick="clickMenu()">
-                    <i class="fas fa-bars menu-icon" ></i>
+                    <i class="fas fa-bars menu-icon" style= "background: #fff;"></i>
                 </div>
 				<div class="search">                
-							<input name="search" type="text" placeholder="Tìm kiếm trên stupid map">
+							<!--<input name="search" type="text" placeholder="Tìm kiếm trên stupid map">-->
 
 
-                          <!--<div class="search_direct">
-                            <i class="fas fa-search search-icon">
-                           <div class="seprate">|</div> 
-							<i class="fas fa-share icon-direct"></i></i>
-                        </div>-->
+                
 					
 					</div>
                    
@@ -375,16 +378,40 @@ var atmLocations = <?php echo $jsonData ?>;
 
 
 // hien vi tri cua ban
+
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function(position){
 
 	var latitude = position.coords.latitude;
 	var longitude = position.coords.longitude;
+
 	var markerLocation = new L.LatLng(latitude, longitude);
 	var marker =  L.marker(markerLocation,{icon: defaultIcon}).addTo(map);
 	marker.bindPopup("Bạn đang ở đây").openPopup();
 	});
 }
+
+
+var control = L.Routing.control(L.extend(window.lrmConfig, {
+		waypoints: [
+			L.latLng(),
+			L.latLng()
+		],
+		geocoder: L.Control.Geocoder.nominatim(),
+		routeWhileDragging: true,
+		reverseWaypoints: true,
+		showAlternatives: true,
+		altLineOptions: {
+			styles: [
+				{color: 'black', opacity: 0.15, weight: 9},
+				{color: 'white', opacity: 0.8, weight: 6},
+				{color: 'blue', opacity: 0.5, weight: 2}
+			]
+		}
+	})).addTo(map);
+
+	L.Routing.errorControl(control).addTo(map);
+
 
 
 // tim kiem 
@@ -397,7 +424,7 @@ var btnadd = document.querySelector('#addbtn');
 		console.log(toast);
 		toast.style.opacity = 1;
 	  }
-//search https://youtu.be/rEa_S_HiKxs
+
 	</script>
 	
 	<script src="./main.js" ></script>
